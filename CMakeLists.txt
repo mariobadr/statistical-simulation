@@ -13,3 +13,6 @@ add_subdirectory(ioproto)
 
 # A library for reading/writing gem5 traces.
 add_subdirectory(iogem5)
+
+# Small helper executables.
+add_subdirectory(util)
