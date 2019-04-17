@@ -10,7 +10,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Warning flags to use for different compilers.
 set(STATSIM_MSVC_WARNING_FLAGS /W4 /WX)
-set(STATSIM_GCC_WARNING_FLAGS -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -Wold-style-cast -Wcast-align
+set(STATSIM_GCC_WARNING_FLAGS -Wall -Wextra -Wnon-virtual-dtor -pedantic -Wold-style-cast -Wcast-align
   -Woverloaded-virtual -Wconversion -Wsign-conversion)
 
 # Add libraries from external sources.
