@@ -5,6 +5,9 @@ project(
   VERSION 0.0.1
 )
 
+# Globally set that all executables be compiled into a 'bin' directory.
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 # Add libraries from external sources.
 add_subdirectory(external)
 
