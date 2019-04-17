@@ -602,7 +602,7 @@ struct fmt_ostream : public std::ostringstream {
    * Construct to output to the provided output stream when this object is
    * destroyed.
    */
-  fmt_ostream(std::ostream& output);
+  fmt_ostream(std::ostream& ostream);
 
   /**
    * @brief
@@ -968,7 +968,7 @@ inline
 bool parser_map::known_short_flag(
   const char flag) const
 {
-  return this->short_map[flag] != nullptr;
+  return this->short_map[static_cast<std::size_t>(flag)] != nullptr;
 }
 
 
@@ -976,7 +976,7 @@ inline
 const definition* parser_map::get_definition_for_short_flag(
   const char flag) const
 {
-  return this->short_map[flag];
+  return this->short_map[static_cast<std::size_t>(flag)];
 }
 
 
@@ -1027,7 +1027,7 @@ parser_map validate_definitions(
 
       if (flag_is_short(flag.data())) {
         const int short_flag_letter = flag[1];
-        const auto existing_short_flag = map.short_map[short_flag_letter];
+        const auto existing_short_flag = map.short_map[static_cast<std::size_t>(short_flag_letter)];
         bool short_flag_already_exists = (existing_short_flag != nullptr);
         if (short_flag_already_exists) {
           std::ostringstream msg;
@@ -1036,7 +1036,7 @@ parser_map validate_definitions(
               << "\" and option \"" << existing_short_flag->name;
           throw invalid_flag(msg.str());
         }
-        map.short_map[short_flag_letter] = &defn;
+        map.short_map[static_cast<std::size_t>(short_flag_letter)] = &defn;
         continue;
       }
 
@@ -1168,7 +1168,7 @@ parser_results parser::parse(int argc, const char** argv) const
       auto long_flag_arg = std::strchr(arg_i_cstr, '=');
       std::size_t flag_len = arg_i_len;
       if (long_flag_arg != nullptr) {
-        flag_len = long_flag_arg - arg_i_cstr;
+        flag_len = static_cast<std::size_t>(long_flag_arg - arg_i_cstr);
       }
       std::string long_flag_str(arg_i_cstr, flag_len);
 
@@ -1438,8 +1438,8 @@ namespace convert {
 
 
 inline
-fmt_ostream::fmt_ostream(std::ostream& output)
-: std::ostringstream(), output(output)
+fmt_ostream::fmt_ostream(std::ostream& ostream)
+: std::ostringstream(), output(ostream)
 {
 }
 
