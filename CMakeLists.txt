@@ -5,5 +5,8 @@ project(
   VERSION 0.0.1
 )
 
+# A library for reading/writing Protobuf files.
 add_subdirectory(ioproto)
+
+# A library for reading/writing gem5 traces.
 add_subdirectory(iogem5)
