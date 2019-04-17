@@ -5,6 +5,9 @@ project(
   VERSION 0.0.1
 )
 
+# Add libraries from external sources.
+add_subdirectory(external)
+
 # A library for reading/writing Protobuf files.
 add_subdirectory(ioproto)
 
