@@ -13,6 +13,7 @@ target_link_libraries(
   ${PROJECT_NAME}
   PRIVATE
     argagg::argagg
+    spdlog::spdlog
     statistical-simulation::iogem5
 )
 

@@ -2,7 +2,10 @@
 #include <fstream>
 
 #include "iogem5/packet-trace.hpp"
+
 #include "argagg.hpp"
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/stdout_sinks.h"
 
 argagg::parser create_command_line_interface()
 {
@@ -78,7 +81,7 @@ void convert_to_gem5(std::string const &input_filename,
 
     serialized_count++;
     if(serialized_count % 1000000 == 0) {
-      std::cout << serialized_count << " packets serialized." << std::endl;
+      spdlog::get("log")->info("{} packets serialized.", serialized_count);
     }
 
     tokens = tokenize(input);
@@ -88,6 +91,9 @@ void convert_to_gem5(std::string const &input_filename,
 int main(int argc, char **argv)
 {
   try {
+    // Create the logger.
+    spdlog::stdout_logger_st("log");
+
     auto interface = create_command_line_interface();
     auto const arguments = interface.parse(argc, argv);
 
@@ -104,7 +110,7 @@ int main(int argc, char **argv)
 
     convert_to_gem5(input_filename, output_filename, cpi, freq);
   } catch(std::exception const &e) {
-    std::cerr << "Error: " << e.what() << "\n";
+    spdlog::get("log")->error("{}", e.what());
 
     return EXIT_FAILURE;
   }
