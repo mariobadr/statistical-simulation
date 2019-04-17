@@ -71,7 +71,7 @@ void convert_to_gem5(std::string const &input_filename,
     }
 
     packet.address = std::stoull(tokens[2]);
-    packet.size = std::stoul(tokens[3]);
+    packet.size = static_cast<std::uint32_t>(std::stoul(tokens[3]));
     packet.pc = std::stoull(tokens[4]);
 
     trace_writer.write(packet);
