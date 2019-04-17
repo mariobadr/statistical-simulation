@@ -1,0 +1,52 @@
+= Trace Recorder
+
+This directory contains a Pin tool to generate a trace of loads and stores performed by an application.
+link:https://software.intel.com/en-us/articles/pin-a-dynamic-binary-instrumentation-tool[Pin] uses dynamic binary instrumentation to attach itself to a binary and hook into specific instructions.
+This tool works for single-threaded workloads only.
+
+== Compiling the Pin Tool
+
+The Pin tool requires an installation of Intel's Pin (tested with Pin v3.6).
+Pin's build system requires that the `PIN_ROOT` environment variable point to the root directory of the Pin installation.
+Once you have set `PIN_ROOT`, you should be able to compile using the provided `makefile`.
+This will generate a new directory (e.g., `obj-intel64`).
+
+== Running the Pin Tool
+
+You can run the Pin tool as you would any other.
+For example:
+
+....
+/path/to/pin-3.6/pin -t /path/to/trace-recorder/obj-intel64/memory-trace-st.so -- /path/to/application
+....
+
+In addition, the Pin tool allows for the following command line arguments:
+
+....
+-f  [default 10000000000]
+        fast forward this many instructions
+-i  [default 250000000]
+        max instructions
+-m  [default 1000000000]
+        max memory requests
+-o  [default trace.csv]
+        trace file name
+....
+
+The tool will exit either when the maximum number of memory requests or maximum number of instructions (not including fast forwarded instructions) has been reached.
+In order to properly obtain the physical addresses of memory requests, *you must run the tool as root*.
+Failure to do so will map all pages to a single page entry, which is incorrect.
+
+== Trace Format
+
+The trace is outputted as a comma-separated file (csv).
+The columns are as follows:
+
+....
+Instruction Count, Read/Write, Address, Size (Bytes), PC
+....
+
+The instruction count is a global running count.
+Reads and Writes map to 0 and 1, respectively.
+Both the address and the PC are the physical address.
+
