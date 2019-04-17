@@ -6,3 +6,4 @@ project(
 )
 
 add_subdirectory(ioproto)
+add_subdirectory(iogem5)
