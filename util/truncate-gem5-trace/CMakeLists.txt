@@ -20,13 +20,12 @@ if(MSVC)
   target_compile_options(
     ${PROJECT_NAME}
     PRIVATE
-      /W4 /WX
+    ${STATSIM_MSVC_WARNING_FLAGS}
   )
 else()
   target_compile_options(
     ${PROJECT_NAME}
     PRIVATE
-      -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -Wold-style-cast -Wcast-align -Woverloaded-virtual
-      -Wconversion -Wsign-conversion
+    ${STATSIM_GCC_WARNING_FLAGS}
   )
 endif()
