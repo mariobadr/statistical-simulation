@@ -24,5 +24,8 @@ add_subdirectory(iogem5)
 # A library for calculating the reuse distance between memory requests.
 add_subdirectory(reuse-distance)
 
+# The project for creating STM models and traces.
+add_subdirectory(stm)
+
 # Small helper executables.
 add_subdirectory(util)

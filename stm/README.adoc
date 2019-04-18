@@ -1,0 +1,11 @@
+= STM Cloning Implementation
+
+An implementation of the statistical profiling technique outlined in:
+
+    Awad, Amro, and Yan Solihin. "STM: Cloning the Spatial and Temporal Memory Access Behavior." 20th International Symposium on High Performance Computer Architecture (HPCA), IEEE, 2014.
+
+The implementation is divided up into three parts:
+
+1. A library that can model a sequence of memory requests.
+2. An executable that can generate a model file.
+3. An executable that can generate a gem5 trace from a model file.

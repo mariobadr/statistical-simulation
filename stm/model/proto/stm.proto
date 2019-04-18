@@ -1,0 +1,40 @@
+syntax = "proto2";
+
+package stm;
+
+// Configuration of the SDC and SPC tables.
+message Configuration {
+  required uint64 sdc_row_count = 1;
+  required uint64 sdc_col_count = 2;
+  required uint64 spc_row_count = 3;
+  required uint64 stride_depth = 4;
+}
+
+message GlobalCounts {
+  // Total memory requests modelled.
+  required uint64 total_requests = 1;
+  // Number of accesses that update the SDC table.
+  required uint64 sdc_count = 2;
+  // Number of accesses that are writes.
+  required uint64 write_count = 3;
+
+  required uint64 spc_start_address = 4;
+  required uint64 min_address = 5;
+  required uint64 max_address = 6;
+}
+
+message SDCRow {
+  // The last tag seen at this row.
+  repeated uint64 tag = 1;
+  // The number of times a reuse distance was observed.
+  repeated uint64 count = 2;
+}
+
+message SPCRow {
+  // The history of strides seen at this row.
+  repeated int64 stride_history = 1;
+  // The different next strides observed.
+  repeated int64 next_stride = 2;
+  // The number of times a next stride was observed.
+  repeated uint64 count = 3;
+}
