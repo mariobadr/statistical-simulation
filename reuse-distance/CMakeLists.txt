@@ -12,6 +12,8 @@ add_library(
   src/olken-tree.cpp
 )
 
+add_library(statistical-simulation::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+
 target_include_directories(
   ${PROJECT_NAME}
   PUBLIC
