@@ -18,9 +18,11 @@ add_subdirectory(external)
 
 # A library for reading/writing Protobuf files.
 add_subdirectory(ioproto)
-
 # A library for reading/writing gem5 traces.
 add_subdirectory(iogem5)
+
+# A library for calculating the reuse distance between memory requests.
+add_subdirectory(reuse-distance)
 
 # Small helper executables.
 add_subdirectory(util)
