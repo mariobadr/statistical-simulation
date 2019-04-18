@@ -1,0 +1,8 @@
+= Input/Output Protobuf Library
+
+A small wrapper library around Google's protobuf.
+The library simplifies the code for reading/writing size-delimited messages.
+
+== Dependencies
+
+The library depends https://developers.google.com/protocol-buffers/[Google protocol buffers] (tested with version 3).
