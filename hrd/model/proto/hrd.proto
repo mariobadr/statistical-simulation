@@ -1,0 +1,30 @@
+syntax = "proto2";
+
+package hrd;
+
+// Configuration of the hierarchy.
+message Configuration {
+  repeated uint64 block_sizes = 1;
+}
+
+message GlobalData {
+  // Total memory requests modelled.
+  required uint64 total_requests = 1;
+  required uint64 min_address = 2;
+  required uint64 max_address = 3;
+}
+
+message OperationsModel {
+  repeated uint64 reads = 1;
+  repeated uint64 writes = 2;
+}
+
+message ReuseModel {
+  message Histogram {
+    repeated double distance = 1;
+    repeated uint64 count = 2;
+  }
+
+  repeated Histogram layer = 1;
+}
+

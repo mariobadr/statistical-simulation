@@ -26,6 +26,8 @@ add_subdirectory(reuse-distance)
 
 # The project for creating STM models and traces.
 add_subdirectory(stm)
+# The project for creating HRD models and traces.
+add_subdirectory(hrd)
 
 # Small helper executables.
 add_subdirectory(util)
