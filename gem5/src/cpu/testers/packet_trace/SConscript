@@ -1,0 +1,10 @@
+# Authors: Mario Badr
+
+Import('*')
+
+if env['HAVE_PROTOBUF']:
+        SimObject('PacketTraceGen.py')
+
+        Source('packet_trace_gen.cc')
+
+        DebugFlag('PacketTraceGen')
