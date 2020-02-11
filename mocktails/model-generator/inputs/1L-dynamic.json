@@ -1,0 +1,11 @@
+{
+  "hierarchy": [
+    {
+      "partition": {
+        "scheme": "spatial",
+        "separator": "contiguous",
+        "value": 1
+      }
+    }
+  ]
+}

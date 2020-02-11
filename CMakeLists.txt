@@ -28,6 +28,8 @@ add_subdirectory(reuse-distance)
 add_subdirectory(stm)
 # The project for creating HRD models and traces.
 add_subdirectory(hrd)
+# The project for creating Mocktails models and traces.
+add_subdirectory(mocktails)
 
 # Small helper executables.
 add_subdirectory(util)
