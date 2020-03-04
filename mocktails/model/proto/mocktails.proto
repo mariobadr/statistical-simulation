@@ -1,0 +1,52 @@
+syntax = "proto2";
+
+package mocktails;
+
+message ProfileHeader {
+  enum ModelType {
+    MOCKTAILS = 0;
+    STM = 1;
+    REUSE_DISTANCE = 2;
+  }
+
+  required uint64 model_count = 1;
+  required ModelType model_type = 2 [default = MOCKTAILS];
+}
+
+message TransitionMatrix {
+  message Transition {
+    required int64 from = 1;
+    required int64 to = 2;
+    required uint64 count = 3;
+  }
+
+  repeated Transition transition = 1;
+}
+
+message SequenceModel {
+  required int64 initial_state = 1;
+  optional TransitionMatrix transition_matrix = 2;
+}
+
+message Footprint {
+  required uint64 start_address = 1;
+  required uint64 min_address = 2;
+  required uint64 max_address = 3;
+}
+
+message ModelHeader {
+
+  required uint32 node_id = 1;
+  required uint64 start_time = 2;
+
+  optional SequenceModel delta_times = 4;
+  optional SequenceModel sizes = 5;
+}
+
+message Model {
+  required uint64 request_count = 1;
+  required Footprint footprint = 2;
+
+  required SequenceModel operations = 3;
+  required SequenceModel strides = 4;
+}

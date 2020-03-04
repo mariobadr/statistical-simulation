@@ -1,0 +1,18 @@
+{
+  "hierarchy": [
+    {
+      "partition": {
+        "scheme": "temporal",
+        "separator": "cycles",
+        "value": 500000
+      }
+    },
+    {
+      "partition": {
+        "scheme": "spatial",
+        "separator": "contiguous",
+        "value": 1
+      }
+    }
+  ]
+}

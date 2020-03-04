@@ -1,0 +1,11 @@
+{
+  "hierarchy": [
+    {
+      "partition": {
+        "scheme": "spatial",
+        "separator": "bytes",
+        "value": 4096
+      }
+    }
+  ]
+}
