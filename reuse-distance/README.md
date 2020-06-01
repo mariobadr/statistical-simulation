@@ -1,4 +1,4 @@
-= Reuse Distance
+# Reuse Distance
 
 A library for calculating the reuse distances of subsequent memory requests.
 

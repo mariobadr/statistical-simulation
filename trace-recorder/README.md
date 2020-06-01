@@ -1,17 +1,17 @@
-= Trace Recorder
+# Trace Recorder
 
 This directory contains a Pin tool to generate a trace of loads and stores performed by an application.
-link:https://software.intel.com/en-us/articles/pin-a-dynamic-binary-instrumentation-tool[Pin] uses dynamic binary instrumentation to attach itself to a binary and hook into specific instructions.
+[https://software.intel.com/en-us/articles/pin-a-dynamic-binary-instrumentation-tool](Pin) uses dynamic binary instrumentation to attach itself to a binary and hook into specific instructions.
 This tool works for single-threaded workloads only.
 
-== Compiling the Pin Tool
+## Compiling the Pin Tool
 
 The Pin tool requires an installation of Intel's Pin (tested with Pin v3.6).
 Pin's build system requires that the `PIN_ROOT` environment variable point to the root directory of the Pin installation.
 Once you have set `PIN_ROOT`, you should be able to compile using the provided `makefile`.
 This will generate a new directory (e.g., `obj-intel64`).
 
-== Running the Pin Tool
+## Running the Pin Tool
 
 You can run the Pin tool as you would any other.
 For example:
@@ -37,7 +37,7 @@ The tool will exit either when the maximum number of memory requests or maximum 
 In order to properly obtain the physical addresses of memory requests, *you must run the tool as root*.
 Failure to do so will map all pages to a single page entry, which is incorrect.
 
-== Trace Format
+## Trace Format
 
 The trace is outputted as a comma-separated file (csv).
 The columns are as follows:

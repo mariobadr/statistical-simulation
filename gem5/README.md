@@ -1,0 +1,3 @@
+# gem5 Integration
+
+This directory contains a packet trace generator that can read the gem5 traces created by the other modules (e.g., STM, HRD, mocktails) in this repository.

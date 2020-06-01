@@ -1,4 +1,4 @@
-= STM Cloning Implementation
+# STM Cloning Implementation
 
 An implementation of the statistical profiling technique outlined in:
 

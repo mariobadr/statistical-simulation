@@ -1,4 +1,4 @@
-= HRD Cloning Implementation
+# HRD Cloning Implementation
 
 This repository is an implementation of the statistical profiling technique outlined in:
 
