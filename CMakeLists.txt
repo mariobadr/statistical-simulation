@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
 
 project(
   statistical-simulation
-  VERSION 0.0.1
+  VERSION 1.0.0
 )
 
 # Globally set that all executables be compiled into a 'bin' directory.
